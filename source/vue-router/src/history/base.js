@@ -273,11 +273,11 @@ function normalizeBase (base: ?string): string {
       base = '/'
     }
   }
-  // make sure there's the starting slash
+  // make sure there's the starting slash 确保有起始斜杠
   if (base.charAt(0) !== '/') {
     base = '/' + base
   }
-  // remove trailing slash
+  // remove trailing slash 删除尾部斜杠
   return base.replace(/\/$/, '')
 }
 
