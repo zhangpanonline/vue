@@ -9,9 +9,19 @@ export default {
         style: {
           cursor: 'pointer'
         },
+        // attrs: {
+        //   href: '#' + context.props.to
+        // }
         on: {
           click() {
-            window.location.hash = context.props.to
+            const router = context.parent.$router
+            const path = context.props.to
+            if (router.mode === 'hash') {
+              window.location.hash = path
+            } else if (router.mode === 'history') {
+              history.pushState({}, '', path)
+            }
+            router.currentPath = context.props.to
           }
         }
       },

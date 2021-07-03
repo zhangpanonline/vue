@@ -47,7 +47,7 @@ export default class VueRouter {
     this.matcher = createMatcher(options.routes || [], this)
 
     let mode = options.mode || 'hash'
-    this.fallback =
+    this.fallback = // 当浏览器不支持 history.pushState 控制路由是否应该回退到 hash 模式。默认值为 true
       mode === 'history' && !supportsPushState && options.fallback !== false
     if (this.fallback) {
       mode = 'hash'
